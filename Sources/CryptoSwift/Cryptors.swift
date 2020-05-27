@@ -37,6 +37,6 @@ extension Cryptors {
   /// Convenience helper that uses `Swift.RandomNumberGenerator`.
   /// - Parameter count: Length of array
   public static func randomIV(_ count: Int) -> Array<UInt8> {
-    (0..<count).map({ _ in UInt8.random(in: 0...UInt8.max) })
+    (0..<count).map({ _ in UInt8(arc4random_uniform(UInt32(UInt8.max))) })
   }
 }
